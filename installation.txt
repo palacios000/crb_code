@@ -1,0 +1,21 @@
+# using composer
+https://getcomposer.org/download/
+
+#https://processwire.com/talk/topic/20490-how-to-setup-composer-and-use-external-libraries-in-processwire/
+php composer.phar init
+php composer.phar install
+git clone https://github.com/processwire/processwire public
+cd public
+rm -r .git .gitattributes .gitignore CONTRIBUTING.md LICENSE.TXT README.md
+
+#and install ProcessWire normally. 
+#ricordati che sul mio local phpmyadmin l' user e': phpmyadmin (non piu' root)
+
+
+
+
+### Bulma ###
+npm init
+npm bulma-start
+#poi installa bulma con il jason npm dentro /bulma-start
+#poi installa grunt

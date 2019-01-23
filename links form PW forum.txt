@@ -1,0 +1,2 @@
+How to setup Composer and use external libraries in ProcessWire
+https://processwire.com/talk/topic/20490-how-to-setup-composer-and-use-external-libraries-in-processwire/

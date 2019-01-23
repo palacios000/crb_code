@@ -1,0 +1,10 @@
+node_modules/*
+
+public/*
+!public/site/
+
+public/site/*
+!public/site/templates
+vendor/*
+composer.phar
+

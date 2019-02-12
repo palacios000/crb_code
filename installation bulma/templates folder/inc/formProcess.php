@@ -10,6 +10,7 @@
 	$redBorder_nome = "";
 	$redBorder_text = "";
 	$redBorder_ppolicy = "";
+	$errori = "";
 
 	if($input->post->invia) {
 		//honeypot
@@ -24,10 +25,12 @@
 			if (!$nome) {
 				$errore_nome = "<p class='help is-danger'>Field contains invalid characters, please check and resend</p>";
 				$redBorder_nome = "is-danger"; 
+				$errori = 1;
 			}
 		}else{
 			$errore_nome = "<p class='help is-danger'>Required field.</p>";
 			$redBorder_nome = "is-danger"; 
+			$errori = 1;
 		}
 		//email
 		if ($input->post->email) {
@@ -35,32 +38,36 @@
 			if (!$email) {
 				$errore_email = "<p class='help is-danger'>Email not valid, please check and resend</p>";
 				$redBorder_email = "is-danger";
+				$errori = 1;
 			}
 		}else{
 			$errore_email = "<p class='help is-danger'>Required field.</p>";
 			$redBorder_email = "is-danger";
+			$errori = 1;
 		}
 
 		//checkbox
-		/*if (!$input->post->ppolicy) {
+		if (!$input->post->ppolicy) {
 			$redBorder_ppolicy = "has-text-danger";
 			$errore_policy = "<p class='help is-danger'>Required checkbox</p>";
-		}*/
+			$errori = 1;
+		}
 
 		//messaggio text
 		if (!$input->post->messaggio) {
 			$redBorder_text = "is-danger";
 			$errore_text = "Please write something, even just 'Hello!'";
+			$errori = 1;
 		}
 
 
 	//2 send
-		if (!$errore_email && !$errore_nome && !$errore_policy && !$errore_text ) {
+		if (!$errori) {
 			$emailText = "Name: $nome - Email: $email\n\n";
 			$emailText .= $input->post->messaggio;
 			$mail = wireMail(); 
-			$mail->to('info@smockcompany.co.uk');
-			$mail->subject('The Hampstead Smock Company - Contact Form');
+			$mail->to('info@sumensadecurius.it');
+			$mail->subject('Sumensa de Curius - Contact Form');
 			$mail->body($emailText);
 			if ($mail->send()) {
 				$session->redirect($page->child->url, false);

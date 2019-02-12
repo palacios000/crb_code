@@ -10,9 +10,11 @@ rm -r .git .gitattributes .gitignore CONTRIBUTING.md LICENSE.TXT README.md
 
 #and install ProcessWire normally. 
 #ricordati che sul mio local phpmyadmin l' user e': phpmyadmin (non piu' root)
+#e probabilmente devi cambiare accesso folder /public in read&write
 
 
-
+### scarica il mio git
+git clone https://github.com/palacios000/processwire.git 
 
 ### Bulma ###
 npm init

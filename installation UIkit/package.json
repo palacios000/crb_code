@@ -1,0 +1,22 @@
+{
+  "name": "uikit_base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "uikit": "^3.0.3",
+    "grunt": "^1.0.3",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.0.2"
+  },
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
+}

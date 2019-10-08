@@ -1,4 +1,5 @@
 # using composer
+terminal commands here:
 https://getcomposer.org/download/
 
 #https://processwire.com/talk/topic/20490-how-to-setup-composer-and-use-external-libraries-in-processwire/
@@ -8,16 +9,36 @@ git clone https://github.com/processwire/processwire public
 cd public
 rm -r .git .gitattributes .gitignore CONTRIBUTING.md LICENSE.TXT README.md
 
+#make writable the installation template folder
+cd ..
+chmod -R 777 public/
+
 #and install ProcessWire normally. 
 #ricordati che sul mio local phpmyadmin l' user e': phpmyadmin (non piu' root)
-#e probabilmente devi cambiare accesso folder /public in read&write
-
 
 ### scarica il mio git
 git clone https://github.com/palacios000/processwire.git 
 
-### Bulma ###
+# aggiungi settings in PW config.php
+$config->prependTemplateFile = '_init.php';
+$config->sessionFingerprint = false; 
+
+### Bulma #########################
 npm init
 npm bulma-start
 #poi installa bulma con il jason npm dentro /bulma-start
 #poi installa grunt
+
+
+### UIkit #########################
+npm init
+npm i uikit
+#copia json per installare grunt e altre dependencies
+#copia css & js da /uikit a /public folder
+cd node_modules/uikit/dist/
+cp css/uikit.min.css css/uikit.css ../../../public/site/templates/styles/
+cp -rf js/ ../../../public/site/templates/
+
+#togli default scripts pw
+cd ../../../public/
+rm -r site/templates/scripts/

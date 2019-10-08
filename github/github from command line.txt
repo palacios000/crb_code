@@ -4,3 +4,8 @@ git push -u origin master
 
 ## per scaricare
 git clone https://github.com/palacios000/processwire.git
+
+###### Credenziali ####
+GitHub
+web@carburo.net
+Y*******!

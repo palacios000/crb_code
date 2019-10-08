@@ -1,0 +1,25 @@
+$wire->addHookAfter('Pagefile::url, Pagefile::filename', function($event) {
+
+  $config = $event->wire('config');
+  $file = $event->return;
+
+  if($event->method == 'url') {
+    // convert url to disk path
+    $file = $config->paths->root . substr($file, strlen($config->urls->root));
+  }
+
+  if(!file_exists($file)) {
+    // download file from source if it doesn't exist here
+    $src = 'https://domain.com/site/assets/files/';
+    $url = str_replace($config->paths->files, $src, $file);
+    $http = new WireHttp();
+    $http->download($url, $file);
+  }
+}); 
+
+
+
+
+Note that the above hooks both the url and filename methods from the Pagefile class (which also implies the Pageimage class) in a single addHook statement. This requires ProcessWire 3.0.137, though can be duplicated on earlier versions by using two separate addHook() calls and providing the implementation as a separate independent function or method.
+--------------
+https://processwire.com/blog/posts/pw-3.0.137/#hook_code

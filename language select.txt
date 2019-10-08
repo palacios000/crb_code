@@ -1,0 +1,28 @@
+
+-- aggiungere campo "connty_code" nel system template "language"
+//langueas
+	$languageButtons = '';
+	$languageButtons .= '<li class="langButton">';
+		foreach ($languages as $language) {
+			$langActive = ($user->language->id == $language->id) ? " active" : "";
+			$url = $page->localUrl($language);
+			$languageButtons .= "<a href='$url' class='$langActive '>".strtoupper($language->country_code)."</a>";
+		}
+	$languageButtons .= '</li>';
+	echo $languageButtons;
+	
+			
+			
+			
+<?php 
+// handle output of 'hreflang' link tags for multi-language
+// https://processwire.com/talk/topic/12332-dynamic-hreflang-link-tags/#comment-114239
+foreach($languages as $language) {
+	// if this page is not viewable in the language, skip it
+	if(!$page->viewable($language)) continue;
+	// get the http URL for this page in the given language
+	$url = $page->localHttpUrl($language); 
+	$hreflang = $language->country_code;
+	echo "\n\t<link rel='alternate' hreflang='$hreflang' href='$url' />";
+}
+?>

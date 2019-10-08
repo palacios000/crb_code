@@ -1,0 +1,27 @@
+<?php
+
+//https://processwire.com/talk/topic/352-creating-pages-via-api/
+
+include(./index.php) // bootstrap PW
+
+$p = new Page(); // create new page object
+$p->template = 'page'; // set template
+$p->parent = wire('pages')->get('/about/'); // set the parent
+$p->name = 'mynewpage_url'; // give it a name used in the url for the page
+$p->title = 'My New Page'; // set page title (not neccessary but recommended)
+
+// added by Ryan: save page in preparation for adding files (#1)
+
+$p->save();
+
+// populate fields
+
+$p->image = 'path/to/image.jpg'; // populate a single image field (#2)
+$p->images->add('path/to/image1.jpg'); // add multiple to images field﻿
+
+$p->save();
+
+// testing
+
+echo 'id: '.$p->id.'<br/>';
+echo 'path: '.$p->path;

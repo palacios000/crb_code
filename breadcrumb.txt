@@ -1,0 +1,10 @@
+<?php
+
+foreach($page->parents()->append($page) as $parent) {
+
+    echo "<a href='{$parent->url}'>{$parent->title}</a> ";
+
+}
+
+//thanks ryan
+https://processwire.com/talk/topic/260-breadcrumbs-how-to-and-what-it-says-about-the-system/

@@ -23,17 +23,27 @@ git clone https://github.com/palacios000/processwire.git
 $config->prependTemplateFile = '_init.php';
 $config->sessionFingerprint = false; 
 
+### npm
+#copia il mio esistente json per installare dependencies
+#alcuni comandi utili
+npm install
+npm update
+npm install -g npm-check-updates # forse queste non necessario se e' gia' installato globally
+ncu -u
+
 ### Bulma #########################
-npm init
-npm bulma-start
-#poi installa bulma con il jason npm dentro /bulma-start
-#poi installa grunt
+non necessario se installo tutto via npm
+	npm init
+	npm bulma-start
+	#poi installa bulma con il jason npm dentro /bulma-start
+	#poi installa grunt
 
 
 ### UIkit #########################
-npm init
-npm i uikit
-#copia json per installare grunt e altre dependencies
+non necessario se installo tutto via npm
+	npm init
+	npm i uikit
+	#copia json per installare grunt e altre dependencies
 #copia css & js da /uikit a /public folder
 cd node_modules/uikit/dist/
 cp css/uikit.min.css css/uikit.css ../../../public/site/templates/styles/
@@ -42,3 +52,6 @@ cp -rf js/ ../../../public/site/templates/
 #togli default scripts pw
 cd ../../../public/
 rm -r site/templates/scripts/
+
+copia templates & inc da processwire folder
+copia scss da mettere in root folder 

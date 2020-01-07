@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 
 		//paths
 		paths: {
-			localhostPath : 'localhost/spluga/public',
+			localhostPath : 'localhost/mdoa/public',
 			app: '',
 			dist: 'public/site/templates',
 			app_css: 'styles',
@@ -71,6 +71,17 @@ module.exports = function(grunt) {
 					ext: '.min.css'
 				}]
 			}
+		},
+		purifycss:{
+			target:{
+				src: [
+					'<%= paths.dist %>/*.php',
+					'<%= paths.dist %>/inc/*.php',
+					'<%= paths.dist %>/js/*.js',
+					],
+				css:['<%= paths.dist %>/styles/uikit.css'],
+				dest: '<%= paths.dist %>/styles/uikit-purified.css'
+			}
 		}
 		/*uncss: {
 		    dist: {
@@ -88,6 +99,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	//grunt.loadNpmTasks('grunt-bower');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-purifycss');
 	//grunt.loadNpmTasks('grunt-uncss');
 
 	//defaul task

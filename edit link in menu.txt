@@ -1,0 +1,7 @@
+<?php if ($page->editable()) {
+			echo "<div class='navbar-item'><a class='button is-link' href='$page->editURL'>edit</a></div>";
+		} ?>
+		
+		
+		link nascoscto admin
+		echo $config->urls->admin

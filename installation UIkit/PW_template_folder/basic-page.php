@@ -1,7 +1,7 @@
 <?php require "inc/head.php" ?>
 <body>
 
-	<div class="uk-container foglie-oro">
+	<div class="uk-container">
 		<?php require "inc/menu.php" ?>
 
 		

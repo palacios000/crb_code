@@ -1,0 +1,9 @@
+_docs/
+node_modules/
+processwire/
+vendor/
+public/wire/
+public/site/assets/
+public/site/modules/
+public/site/templates/styles/webfonts/
+public/site/templates/js/components/

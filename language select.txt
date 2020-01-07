@@ -1,5 +1,5 @@
 
--- aggiungere campo "connty_code" nel system template "language"
+-- aggiungere campo "country_code" nel system template "language"
 //langueas
 	$languageButtons = '';
 	$languageButtons .= '<li class="langButton">';
@@ -11,7 +11,31 @@
 	$languageButtons .= '</li>';
 	echo $languageButtons;
 	
-			
+
+// select -- 
+
+<!-- language -->
+<select class="languageSelect" onchange='window.location=$(this).val();'>
+//2019 cambiato onchange per UI-kit
+<select class="languageSelect" onchange="javascript:location.href = this.value;">
+
+<?php 
+foreach($languages as $language) {
+  $selected = '';
+
+  if(!$page->viewable($language)) continue;    
+  if($user->language->id == $language->id) $selected = " selected=selected"; 
+  $url = $page->localUrl($language); 
+
+  $title_language = $language->title;
+  if ($title_language == "Default") $title_language = "English" ;
+
+  // output the option tag 
+  echo "<option$selected value='$url'>$title_language</option>";
+}
+?>
+</select>
+//thanks to Rayan post and https://stackoverflow.com/questions/12388954/redirect-form-to-different-url-based-on-select-option-element
 			
 			
 <?php 

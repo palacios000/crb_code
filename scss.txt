@@ -1,0 +1,22 @@
+@function px2em($pixels, $context: 20) {
+	@return #{$pixels/$context}em;
+}
+
+
+@font-face {
+    font-family: SabonItalic;
+    src: url("fonts/SabonLTStd-Italic.otf") format("opentype");
+}
+
+@mixin SimP (){
+	font-size:  px2em(20);
+	line-height: px2em(30);
+	letter-spacing: 0.1em;
+}
+=====
+@include SimP
+
+
+	
+@media (min-width: $breakpoint-small) {}
+@media (max-width: $breakpoint-small) {} ecc

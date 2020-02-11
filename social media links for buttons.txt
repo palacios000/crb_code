@@ -1,0 +1,7 @@
+FB & Twitter
+
+da capire Instagram...
+
+
+<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $page->httpUrl ?>" uk-icon="icon: facebook"></a>
+<a href="https://twitter.com/intent/tweet?url=<?php echo $page->httpUrl ?>" uk-icon="icon: twitter"></a>

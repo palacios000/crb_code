@@ -1,76 +1,76 @@
 <?php 
-//1 validate
+/* form UI-kit 03/2020 */
+
+// settings
+	$recipient = "";
+	$subject = "";
+	$notSent = "<p>Messaggio non inviato, prego riprovare o contattare l'amministratore del sito.</p>";
+	$multilanguage = "lingua: ".$user->language->country_code;
+
+//1 required field
 	$nome = "";
+	$cognome = "";
 	$email = "";
-	$errore_nome = "";
-	$errore_email = "";
-	$errore_text = "";
-	$errore_ppolicy = "";
-	$redBorder_email = "";
-	$redBorder_nome = "";
-	$redBorder_text = "";
-	$redBorder_ppolicy = "";
+	$messaggio = "";
 	$errori = "";
 
-	if($input->post->invia) {
-		//honeypot
-		if ($input->post->surname) {
-			$session->redirect($page->child->url, false);
-			exit;
-		}
+//2 minifunction
+	function errormessage($fieldname){
+		return  "<p>Campo <strong>$fieldname</strong> mancante o non corretto, prego controllare</p>";
+	}
 
-		//nome
-		if ($input->post->nome) {
-			$nome = $sanitizer->text($input->post->nome);
-			if (!$nome) {
-				$errore_nome = "<p class='help is-danger'>Field contains invalid characters, please check and resend</p>";
-				$redBorder_nome = "is-danger"; 
-				$errori = 1;
-			}
+// honeypot, usually is "citta"
+
+	if ($input->post->invia) {
+		
+		if ($input->post->citta) { 
+			//honeypot
+			$session->redirect($homepage->url);
+			$errori = 1;
 		}else{
-			$errore_nome = "<p class='help is-danger'>Required field.</p>";
-			$redBorder_nome = "is-danger"; 
-			$errori = 1;
-		}
-		//email
-		if ($input->post->email) {
-			$email = $sanitizer->email($input->post->email);
-			if (!$email) {
-				$errore_email = "<p class='help is-danger'>Email not valid, please check and resend</p>";
-				$redBorder_email = "is-danger";
-				$errori = 1;
+			$emailMessage = "";
+			foreach ($input->post() as $postKey => $postItem) {
+			if ($postKey == "citta" ) continue; // honeypot
+			if ($postKey == "invia" ) continue; 
+			if ($postKey == "ppolicy" ) continue; 
+			if ($postKey == "messaggio" ) {
+				$$postKey = $sanitizer->textArea($postItem); // questo l'ho spostato sotto
+			}else{
+				$$postKey = $sanitizer->text($postItem);
+			} 
+			$emailMessage .= $postKey .": ". $postItem. "<br>";
 			}
-		}else{
-			$errore_email = "<p class='help is-danger'>Required field.</p>";
-			$redBorder_email = "is-danger";
-			$errori = 1;
 		}
 
-		//checkbox
-		if (!$input->post->ppolicy) {
-			$redBorder_ppolicy = "has-text-danger";
-			$errore_policy = "<p class='help is-danger'>Required checkbox</p>";
-			$errori = 1;
-		}
+		//check if empy values		
+		if (!$nome) 	$errori .= errormessage('nome');
+		if (!$cognome) 	$errori .= errormessage('cognome');
+		if (!$email) 	$errori .= errormessage('email');
+		if (!$messaggio) $errori .= errormessage('messaggio');
 
-		//messaggio text
-		if (!$input->post->messaggio) {
-			$redBorder_text = "is-danger";
-			$errore_text = "Please write something, even just 'Hello!'";
-			$errori = 1;
-		}
+		//further checks
+		if (!$sanitizer->email($email)) 		$errori .= errormessage('email');
+		if (!$sanitizer->checkbok($ppolicy)) 	$errori .= errormessage('Privacy Policy');
 
 
-	//2 send
+		// if all OK, send ///////////////////////////////////////////////
 		if (!$errori) {
-			$emailText = "Name: $nome - Email: $email\n\n";
-			$emailText .= $input->post->messaggio;
+
+			// aggiungi lingua
+			$emailMessage .= $multilanguage;
+
 			$mail = wireMail(); 
-			$mail->to('info@sumensadecurius.it');
-			$mail->subject('Sumensa de Curius - Contact Form');
-			$mail->body($emailText);
+			// $mail->to($recipient); // activate on line
+			$mail->to('web@carburo.net'); // test email
+			$mail->header('Reply-To', $email); // da controllare (procache)
+			$mail->subject($subject);
+			$mail->bodyHTML($emailMessage);
+			$mail->addSignature(true);
 			if ($mail->send()) {
-				$session->redirect($page->child->url, false);
+				$session->redirect($page->child->url);
+			}else{
+				$errori .= $notSent;
 			}
 		}
+
 	}

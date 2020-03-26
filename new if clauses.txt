@@ -1,0 +1,14 @@
+// if summary is populated, output it in an paragraph
+echo $page->if("summary", "<p class='summary'>{summary}</p>");
+
+// if price is populated, format for output, otherwise ask them to call for price
+echo $page->if("price", function($n) { return '$' . number_format($n); }, "Please call");
+
+// you can also use selector strings
+echo $page->if("inventory>10", "In stock", "Limited availability");
+
+// output an <img> tag for the first image on the page, or blank if none
+echo $page->if("images", function($val) { return "<img src='{$val->first->url}'>"; });
+
+more here
+https://processwire.com/blog/posts/pw-3.0.126/

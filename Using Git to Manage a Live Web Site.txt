@@ -1,0 +1,39 @@
+Using Git to Manage a Live Web Site
+https://gist.github.com/Nilpo/8ed5e44be00d6cf21f22
+
+0. il sottodominio di carburo.net in Clouflare, non deve esser Proxied!
+
+1 importare la mia chiave SSH sul server remoto (in Plesk, l'icona e' sulla colonna destra del pannello account"
+
+2 Vai su "Web Hosting Access" per creare nuova utenza di accesso al server Plesk
+
+3 provare a fare l'accesso via SSH con terminal
+
+-------- poi segui istruzioni in github (link sopra)
+
+
+
+###alcuni comandi utili
+pwd: Determining Your Current Directory with pwd
+touch: create file
+nano: edit file
+
+ssh visconti@www.villavisconti.carburo.net
+/var/www/vhosts/villavisconti.carburo.net/smv.git/
+
+
+### git ignore on local git 
+/* visto che non funziona "git update-index --assume-unchanged" 
+*  uso gitingore sul local
+*  per poi caricare i file in .gitignore  manualemnte via FTP..
+/*
+
+site/config.php
+site/ftpsync.settings
+site/templates/_museoVars.php
+site/assets/*
+-- forse anche gmap style settings
+
+
+##apply .gitignore after gitinit
+https://stackoverflow.com/questions/19663093/apply-gitignore-on-an-existing-repository-already-tracking-large-number-of-file

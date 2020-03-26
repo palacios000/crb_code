@@ -1,0 +1,20 @@
+WEBP image strategies,
+https://processwire.com/blog/posts/webp-images-and-more/
+
+
+# Output WEBP image URLs from ProcessWire, but redirect them to the
+# JPEG or PNG when the browser does not support WEBP.
+
+RewriteCond %{HTTP_ACCEPT} !image/webp [OR]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1$2$3/$4.jpg -f
+RewriteRule ^(.*?)(site/assets/files/)([0-9]+)/(.*)\.webp(.*)$ /$1$2$3/$4.jpg [R=307,L]
+
+RewriteCond %{HTTP_ACCEPT} !image/webp [OR]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1$2$3/$4.png -f
+RewriteRule ^(.*?)(site/assets/files/)([0-9]+)/(.*)\.webp(.*)$ /$1$2$3/$4.png [R=307,L]
+
+
+### moduleo PageimageSrcset
+https://processwire.com/talk/topic/22019-pageimagesrcset/

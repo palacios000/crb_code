@@ -1,7 +1,44 @@
 FB & Twitter
 
-da capire Instagram...
+da capire Instagram... (non si puo')
 
 
 <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $page->httpUrl ?>" uk-icon="icon: facebook"></a>
 <a href="https://twitter.com/intent/tweet?url=<?php echo $page->httpUrl ?>" uk-icon="icon: twitter"></a>
+
+
+
+
+
+and others
+<!-- Basic Share Links -->
+
+<!-- Twitter (url, text, @mention) -->
+<a href="https://twitter.com/share?url=<URL>&text=<TEXT>via=<USERNAME>">
+    Twitter
+</a>
+
+<!-- Facebook (url) -->
+<a href="https://www.facebook.com/sharer/sharer.php?u=<URL>">
+    Facebook
+</a>
+
+<!-- Reddit (url, title) -->
+<a href="https://reddit.com/submit?url=<URL>&title=<TITLE>">
+    Reddit
+</a>
+
+<!-- Hacker News (url, title) -->
+<a href="https://news.ycombinator.com/submitlink?u=<URL>&t=<TITLE>">
+    Hacker News
+</a>
+
+<!-- LinkedIn (url, title, summary, source url) -->
+<a href="https://www.linkedin.com/shareArticle?url=<URL>&title=<TITLE>&summary=<SUMMARY>&source=<SOURCE_URL>">
+    LinkedIn
+</a>
+
+<!-- Email (subject, body) -->
+<a href="mailto:?subject=<SUBJECT>&body=<BODY>">
+    Email
+</a>

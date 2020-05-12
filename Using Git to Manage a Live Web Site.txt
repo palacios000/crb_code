@@ -20,6 +20,7 @@ nano: edit file
 
 ssh visconti@www.villavisconti.carburo.net
 /var/www/vhosts/villavisconti.carburo.net/smv.git/
+/var/www/vhosts/livigno.carburo.net/httpdocs
 
 
 ### git ignore on local git 

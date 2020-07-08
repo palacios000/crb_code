@@ -54,4 +54,4 @@ cd ../../../public/
 rm -r site/templates/scripts/
 
 copia templates & inc da processwire folder
-copia scss da mettere in root folder -- oppure public folder cosi' il git e' aggiorna tutto
+copia scss da mettere in root folder -- oppure public folder cosi' il git aggiorna tutto

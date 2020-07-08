@@ -1,9 +1,9 @@
 {	
-	"name" : "MDOA",
+	"name" : "sito",
 	"folders":
 	[
 		{
-			"name": "moda",
+			"name": "sito",
 			"path": "."
 		},
 		{

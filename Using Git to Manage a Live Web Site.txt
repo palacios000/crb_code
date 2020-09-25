@@ -38,3 +38,7 @@ site/assets/*
 
 ##apply .gitignore after gitinit
 https://stackoverflow.com/questions/19663093/apply-gitignore-on-an-existing-repository-already-tracking-large-number-of-file
+
+
+tip: come effettuare un push live senza aver modificato alcun file, creando un empy commit
+$ git commit --allow-empty -m "Trigger notification"

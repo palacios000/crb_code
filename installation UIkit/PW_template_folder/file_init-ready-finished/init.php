@@ -54,7 +54,7 @@ function listPagesCard ($cards, $columns = 2, $news = false){
 
 
 /* immagini srcset ecc*/
-unction mainPicture($page){
+function mainPicture($page){
 	$image = (count($page->images)) ? $page->images->first : $page->parent->images->first;
 	return $image;
 }

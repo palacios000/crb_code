@@ -31,6 +31,8 @@ npm update
 npm install -g npm-check-updates # forse queste non necessario se e' gia' installato globally
 ncu -u
 
+~~~ attenzione, l'ultimo updgrade di grunt a 1.2.1 non mi fa funzionare sass... ci ho speso 1/2 giornata a cercare di aggiustarlo 
+
 ### Bulma #########################
 non necessario se installo tutto via npm
 	npm init

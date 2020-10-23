@@ -1,6 +1,7 @@
 # using composer
 terminal commands here:
-https://getcomposer.org/download/
+https://getcomposer.org/download/ oppure
+https://linuxize.com/post/how-to-install-and-use-composer-on-debian-10/
 
 #https://processwire.com/talk/topic/20490-how-to-setup-composer-and-use-external-libraries-in-processwire/
 php composer.phar init
@@ -17,7 +18,7 @@ chmod -R 777 public/
 #ricordati che sul mio local phpmyadmin l' user e': phpmyadmin (non piu' root)
 
 ### scarica il mio git
-git clone https://github.com/palacios000/processwire.git 
+git clone https://github.com/palacios000/crb_code.git 
 
 # aggiungi settings in PW config.php
 $config->prependTemplateFile = '_init.php';

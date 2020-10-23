@@ -1,0 +1,12 @@
+{
+	"auto_complete": true,
+	"color_scheme": "Packages/Monokai Rich/Monokai Original.tmTheme",
+	"font_face": "JetBrains Mono",
+	"font_size": 15,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"show_definitions": false,
+	"theme": "Adaptive.sublime-theme"
+}

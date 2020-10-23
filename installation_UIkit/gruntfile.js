@@ -18,12 +18,12 @@ module.exports = function(grunt) {
 				source_scss: 'scss'
 			},
 
-			jshint: {
+			/*jshint: {
 			  
 			  all: [
 			    'gruntfile.js'
 			  ]
-			},
+			},*/
 
 			sass: {
 				dev: {
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
 					}]
 				}
 			},
-			purifycss:{
+			/*purifycss:{
 				target:{
 					src: [
 						'<%= paths.dist %>/*.php',
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
 					css:['<%= paths.dist %>/styles/uikit.css'],
 					dest: '<%= paths.dist %>/styles/uikit-purified.css'
 				}
-			}
+			}*/
 			/*uncss: {
 			    dist: {
 			        files: {
@@ -102,13 +102,13 @@ module.exports = function(grunt) {
 		});
 
 		//load dependencies
-		grunt.loadNpmTasks('grunt-contrib-jshint');
+		// grunt.loadNpmTasks('grunt-contrib-jshint');
 		grunt.loadNpmTasks('grunt-browser-sync');
 		grunt.loadNpmTasks('grunt-sass');
 		grunt.loadNpmTasks('grunt-contrib-watch');
 		//grunt.loadNpmTasks('grunt-bower');
 		grunt.loadNpmTasks('grunt-contrib-cssmin');
-		grunt.loadNpmTasks('grunt-purifycss');
+		// grunt.loadNpmTasks('grunt-purifycss');
 		//grunt.loadNpmTasks('grunt-uncss');
 
 		//defaul task

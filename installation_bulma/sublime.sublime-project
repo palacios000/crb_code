@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"name": "WeekAfter",
+			"path": "."
+		},
+		{
+			"name": "PW",
+			"path": "public/site/templates"
+		},
+		{
+			"name": "Bulma",
+			"path": "node_modules/bulma"			
+		}
+	]
+}

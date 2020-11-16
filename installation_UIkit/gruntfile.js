@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 				dist: 'public/site/templates',
 				app_css: 'styles',
 				app_js: 'js',
-				source_scss: 'scss'
+				source_scss: 'public/scss'
 			},
 
 			/*jshint: {
